@@ -94,17 +94,19 @@
     <div id="viewport-params-expand"></div>
 
     <div>
-        <input type="text" name="phone"/>
-        <input type="text" name="name"/>
-        <textarea name="text_request"></textarea>
+        <input id="input_name" type="text" name="phone"/>
+        <input id="input_phone" type="text" name="name"/>
+        <textarea id="input_request" name="text_request"></textarea>
     </div>
     <script>
         // Init TWA
         Telegram.WebApp.ready();
 
         Telegram.WebApp.requestContact((i,e)=>{
-            if(i)
-                Telegram.WebApp.showAlert(JSON.stringify(e));
+            if(i){
+                document.getElementById("input_phone").value=e.responseUnsafe.contact.phone_number);
+                Telegram.WebApp.showAlert(e.responseUnsafe.contact.phone_number);
+            }
             else Telegram.WebApp.showAlert("We realy need yoru phone");
         })
 
