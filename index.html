@@ -92,9 +92,19 @@
     <div id="viewport"></div>
     <div id="viewport-params-size"></div>
     <div id="viewport-params-expand"></div>
+
+    <div>
+        <input type="text" name="phone"/>
+        <input type="text" name="name"/>
+        <textarea name="text_request"></textarea>
+    </div>
     <script>
         // Init TWA
         Telegram.WebApp.ready();
+
+        Telegram.WebApp.requestContact((i,e)=>{
+            showPopup(e);
+        })
 
         // Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
         Telegram.WebApp.onEvent('themeChanged', function() {
