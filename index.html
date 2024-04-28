@@ -114,7 +114,7 @@
             var json=JSON.stringify(Object.fromEntries(fd),null,"  ");
             Telegram.WebApp.sendData(json);
             console.log(json);
-            Telegram.WebApp.close();
+            // Telegram.WebApp.close();
         });	
         Telegram.WebApp.MainButton.show();
 
