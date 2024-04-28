@@ -104,7 +104,7 @@
 
         Telegram.WebApp.requestContact((i,e)=>{
             if(i){
-                document.getElementById("input_phone").value=e.responseUnsafe.contact.phone_number);
+                document.getElementById("input_phone").value=e.responseUnsafe.contact.phone_number;
                 Telegram.WebApp.showAlert(e.responseUnsafe.contact.phone_number);
             }
             else Telegram.WebApp.showAlert("We realy need yoru phone");
