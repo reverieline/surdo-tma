@@ -103,8 +103,9 @@
         Telegram.WebApp.ready();
 
         Telegram.WebApp.requestContact((i,e)=>{
-            Telegram.WebApp.showAlert(i);
-            Telegram.WebApp.showAlert(e);
+            if(i)
+                Telegram.WebApp.showAlert(e);
+            else Telegram.WebApp.showAlert("We realy need yoru phone");
         })
 
         // Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
