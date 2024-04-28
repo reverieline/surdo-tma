@@ -112,9 +112,8 @@
             var form=document.getElementById("request_form");
             var fd=new FormData(form);
             var json=JSON.stringify(Object.fromEntries(fd),null,"  ");
-            Telegram.WebApp.sendData(json);
-            console.log(json);
-            // Telegram.WebApp.close();
+            // Telegram.WebApp.sendData(json);
+            Telegram.WebApp.sendData(fd);
         });	
         Telegram.WebApp.MainButton.show();
 
