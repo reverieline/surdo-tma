@@ -104,7 +104,7 @@
 
         Telegram.WebApp.requestContact((i,e)=>{
             if(i)
-                Telegram.WebApp.showAlert(e);
+                Telegram.WebApp.showAlert(JSON.stringify(e));
             else Telegram.WebApp.showAlert("We realy need yoru phone");
         })
 
