@@ -27,7 +27,7 @@
     <!-- Eruda is console for mobile browsers -->
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>
-    
+
     <script>
         function fromBase64(base64Str) {
             const utf8String = atob(base64Str);
@@ -108,24 +108,28 @@
             //Show target block
             document.getElementById("user-info").style.display="block";
 
-            if(botParams.user.name)
-                document.querySelector("#user-info-form #input_name").value=botParams.user.name;
-            if(botParams.user.phone)
-                document.querySelector("#user-info-form #input_phone").value=botParams.user.phone;
-            else {
-                Telegram.WebApp.requestContact((i,e)=>{
-                    if(i)
-                        document.querySelector("#user-info-form #input_phone").value=e.responseUnsafe.contact.phone_number;
-                })
+            //loat data to form if user object is presetn
+            if(botParams.user){
+                if(botParams.user.name)
+                    document.querySelector("#user-info-form #input_name").value=botParams.user.name;
+                if(botParams.user.phone)
+                    document.querySelector("#user-info-form #input_phone").value=botParams.user.phone;
+                else {
+                    Telegram.WebApp.requestContact((i,e)=>{
+                        if(i)
+                            document.querySelector("#user-info-form #input_phone").value=e.responseUnsafe.contact.phone_number;
+                    })
+                }
+                if(botParams.user.gender)
+                    document.querySelector("#user-info-form #input_gender").value=botParams.user.gender;
+                if(botParams.user.birthdate){
+                    const bd=botParams.user.birthdate.split(".");
+                    document.querySelector("#user-info-form #input_birthdate_year").value=bd[2];
+                    document.querySelector("#user-info-form #input_birthdate_month").value=bd[1];
+                    document.querySelector("#user-info-form #input_birthdate_day").value=bd[0];
+                }
             }
-            if(botParams.user.gender)
-                document.querySelector("#user-info-form #input_gender").value=botParams.user.gender;
-            if(botParams.user.birthdate){
-                const bd=botParams.user.birthdate.split(".");
-                document.querySelector("#user-info-form #input_birthdate_year").value=bd[2];
-                document.querySelector("#user-info-form #input_birthdate_month").value=bd[1];
-                document.querySelector("#user-info-form #input_birthdate_day").value=bd[0];
-            }
+            
                 
 
             Telegram.WebApp.MainButton.setParams({
