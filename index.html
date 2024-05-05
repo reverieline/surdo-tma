@@ -66,8 +66,13 @@
     </style>
 
     <script>
-        const tickedJson=new URL(location.href).searchParams.get('botParams');
-        window.botParams=JSON.parse(tickedJson.replaceAll('`','"'));
+        function fromBase64(base64Str) {
+            const utf8String = atob(base64Str);
+            const decodedString = decodeURIComponent(utf8String);
+            return decodedString;
+        }
+        const base64encodedParams=new URL(location.href).searchParams.get('botParams');
+        window.botParams=JSON.parse(fromBase64(base64encodedParams));
     </script>
 </head>
 <body>
