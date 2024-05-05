@@ -31,7 +31,9 @@
             return decodedString;
         }
         const base64encodedParams=new URL(location.href).searchParams.get('botParams');
-        window.botParams=JSON.parse(fromBase64(base64encodedParams));
+        if(base64encodedParams)
+            window.botParams=JSON.parse(fromBase64(base64encodedParams));
+        else window.botParams={}
     </script>
 </head>
 <body>
