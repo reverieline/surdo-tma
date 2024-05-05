@@ -117,6 +117,15 @@
 
             if(botParams.user.name)
                 document.querySelector("#user-info-form #input_name").value=botParams.user.name;
+            if(botParams.user.phone)
+                document.querySelector("#user-info-form #input_phone").value=botParams.user.phone;
+            else {
+                Telegram.WebApp.requestContact((i,e)=>{
+                if(i){
+                    document.querySelector("#user-info-form #input_phone").value
+                    =e.responseUnsafe.contact.phone_number;
+                }
+            }
 
             Telegram.WebApp.MainButton.setParams({
                 text: 'ЗБЕРЕГТИ'
