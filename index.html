@@ -112,6 +112,12 @@
                         document.querySelector("#user-info-form #input_phone").value=e.responseUnsafe.contact.phone_number;
                 })
             }
+            if(botParams.user.gender)
+                document.querySelector("#user-info-form #input_gender").value=botParams.user.gender;
+            if(botParams.user.birthdate){
+                document.querySelector("#user-info-form #input_birthdate_year").value=botParams.user.birthdate.substring(botParams.user.birthdate.length-4);
+            }
+                
 
             Telegram.WebApp.MainButton.setParams({
                 text: 'ЗБЕРЕГТИ'
