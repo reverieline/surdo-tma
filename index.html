@@ -81,19 +81,20 @@
             <a href="https://ton.org/"><img width="48" src="./assets/tapps.png" alt="logo of telegram web apps"></a>
         </div>
         
-        <h1>Запит на допомогу</h1>
-        <p>Будь ласка, вкажіть свої контактні дані та вкажіть, що саме вам потрібно.</p>
-
-        <form id="request_form">
-            <label for="name">Повне ім'я</label>
-            <input id="input_name" type="text" name="name"/>
-    
-            <label for="phone">Телефон</label>
-            <input id="input_phone" type="text" name="phone"/>
-    
-            <label for="request">Запит</label>
-            <textarea id="input_request" name="request"></textarea>
-        </form>
+        <div id="user-info" style="display: none;">
+            <h1>Діні користувача</h1>
+            <p>Будь ласка, вкажіть свої дані.</p>
+            <form id="user-info-form">
+                <label for="name">Повне ім'я</label>
+                <input id="input_name" type="text" name="name"/>
+        
+                <label for="phone">Телефон</label>
+                <input id="input_phone" type="text" name="phone"/>
+        
+                <label for="request">Запит</label>
+                <textarea id="input_request" name="request"></textarea>
+            </form>
+        </div>
         
     </main>
     
@@ -114,15 +115,21 @@
         });
 
         // Show main button
-        Telegram.WebApp.MainButton.setParams({
-            text: 'Відправити запит'
-        });
-        Telegram.WebApp.MainButton.onClick(function () {
-            var form=document.getElementById("request_form");
-            var fd=new FormData(form);
-            var json=JSON.stringify(Object.fromEntries(fd));
-            Telegram.WebApp.sendData(json);
-        });	
+        if(botParams.target=='user'){
+            document.getElementById("user-info").style.display="block";
+
+            Telegram.WebApp.MainButton.setParams({
+                text: 'ЗБЕРЕГТИ'
+            });
+            
+            Telegram.WebApp.MainButton.onClick(function () {
+                var form=document.getElementById("user-info-form");
+                var fd=new FormData(form);
+                var json=JSON.stringify(Object.fromEntries(fd));
+                Telegram.WebApp.sendData(json);
+            });	
+        }
+        
         Telegram.WebApp.MainButton.show();
 
         // Function to call showPopup API
