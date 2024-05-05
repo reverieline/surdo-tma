@@ -64,8 +64,12 @@
             top: 30px;
         }
     </style>
-</head>
 
+    <script>
+        const tickedJson=new URL(location.href).searchParams.get('botParams');
+        window.botParams=JSON.parse(tickedJson.replaceAll('`','"'));
+    </script>
+</head>
 <body>
     <main>
         <div align="center">
