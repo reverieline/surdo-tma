@@ -90,9 +90,6 @@
         
                 <label for="phone">Телефон</label>
                 <input id="input_phone" type="text" name="phone"/>
-        
-                <label for="request">Запит</label>
-                <textarea id="input_request" name="request"></textarea>
             </form>
         </div>
         
@@ -117,6 +114,9 @@
         // Show main button
         if(botParams.target=='user'){
             document.getElementById("user-info").style.display="block";
+
+            if(botParams.user.name)
+                document.querySelector("#user-info-form #input_name").value=botParams.user.name;
 
             Telegram.WebApp.MainButton.setParams({
                 text: 'ЗБЕРЕГТИ'
