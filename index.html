@@ -7,8 +7,12 @@
     <title>Surdo v2 Telegram Mini Apps Vanilla JS Sample App</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        input,textarea {
+        input,textarea,select {
             width: 100%;
+        }
+        label{
+            display: block;
+            padding-top: 10PX;
         }
         body {
             --bg-color: var(--tg-theme-bg-color);
@@ -66,10 +70,10 @@
                     </select>
                 </div>
 
-                <div>
-                    <label for="birthdate">Дата народження</label>
-                    <input id="input_birthdate_day" type="text" name="birthdate_day" maxlength="2" placeholder="ДД"/>
-                    <select id="input_birthdate_month" name="birthdate_month">
+                <label for="birthdate">Дата народження</label>
+                <div style="display:flex;">
+                    <input style="flex-grow: 1; width: 33%;" id="input_birthdate_day" type="text" name="birthdate_day" maxlength="2" placeholder="ДД"/>
+                    <select style="flex-grow: 1; width: 33%;" id="input_birthdate_month" name="birthdate_month">
                         <option value="0"></option>
                         <option value="1">Січня</option>
                         <option value="2">Лютого</option>
@@ -84,7 +88,7 @@
                         <option value="11">Листопаду</option>
                         <option value="12">Грудня</option>
                     </select>
-                    <input id="input_birthdate_year" type="text" name="birthdate_year" maxlength="4" placeholder="РРРР"/>
+                    <input style="flex-grow: 1; width: 33%;" id="input_birthdate_year" type="text" name="birthdate_year" maxlength="4" placeholder="РРРР"/>
                 </div>
 
                 <div>
