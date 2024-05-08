@@ -51,44 +51,44 @@
         </div>
         
         <div id="user-info" style="display: none;">
-            <h1>Діні користувача</h1>
-            <p>Будь ласка, вкажіть свої дані.</p>
+            <h1>Данные пользователя</h1>
+            <p>Пожалуста, укажите ваши данные ниже.</p>
             <form id="user-info-form">
                 <input type="hidden" name="target" value="user"/>
 
                 <div>
-                    <label for="name">Повне ім'я*</label>
+                    <label for="name">Фамилия Имя Отчество*</label>
                     <input id="input_name" type="text" name="name"/>
                 </div>
         
                 <div>
-                    <label for="gender">Стать</label>
+                    <label for="gender">Пол</label>
                     <select id="input_gender" name="gender">
                         <option value=""></option>
-                        <option value="female">Жінка</option>
-                        <option value="male">Чоловік</option>
+                        <option value="female">Женский</option>
+                        <option value="male">Мужской</option>
                     </select>
                 </div>
 
-                <label for="birthdate">Дата народження</label>
+                <label for="birthdate">Дата рождения</label>
                 <div style="display:flex;">
                     <input style="flex-grow: 1; width: 33%;" id="input_birthdate_day" type="text" name="birthdate_day" maxlength="2" placeholder="ДД"/>
                     <select style="flex-grow: 1; width: 33%;" id="input_birthdate_month" name="birthdate_month">
                         <option value="0"></option>
-                        <option value="1">Січня</option>
-                        <option value="2">Лютого</option>
-                        <option value="3">Березня</option>
-                        <option value="4">Квітня</option>
-                        <option value="5">Травня</option>
-                        <option value="6">Червня</option>
-                        <option value="7">Липня</option>
-                        <option value="8">Серпня</option>
-                        <option value="9">Вересня</option>
-                        <option value="10">Жовтня</option>
-                        <option value="11">Листопаду</option>
-                        <option value="12">Грудня</option>
+                        <option value="1">Января</option>
+                        <option value="2">Февраля</option>
+                        <option value="3">Марта</option>
+                        <option value="4">Апреля</option>
+                        <option value="5">Мая</option>
+                        <option value="6">Июня</option>
+                        <option value="7">Июля</option>
+                        <option value="8">Августа</option>
+                        <option value="9">Сентября</option>
+                        <option value="10">Октября</option>
+                        <option value="11">Ноября</option>
+                        <option value="12">Декабря</option>
                     </select>
-                    <input style="flex-grow: 1; width: 33%;" id="input_birthdate_year" type="text" name="birthdate_year" maxlength="4" placeholder="РРРР"/>
+                    <input style="flex-grow: 1; width: 33%;" id="input_birthdate_year" type="text" name="birthdate_year" maxlength="4" placeholder="ГГГГ"/>
                 </div>
 
                 <div>
@@ -142,7 +142,7 @@
                 
 
             Telegram.WebApp.MainButton.setParams({
-                text: 'ЗБЕРЕГТИ'
+                text: 'СОХРАНИТЬ'
             });
             
             Telegram.WebApp.MainButton.onClick(function () {
