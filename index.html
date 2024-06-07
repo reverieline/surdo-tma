@@ -57,6 +57,17 @@
                 <input type="hidden" name="target" value="user"/>
 
                 <div>
+                    <label for="disability">Группа инвалидности по слуху</label>
+                    <select id="input_disability" name="disability">
+                        <option value="">Нет</option>
+                        <option value="3">III</option>
+                        <option value="2">II</option>
+                        <option value="1a">IБ</option>
+                        <option value="1b">IА</option>
+                    </select>
+                </div>
+
+                <div>
                     <label for="name">Фамилия Имя Отчество*</label>
                     <input id="input_name" type="text" name="name"/>
                 </div>
@@ -124,6 +135,8 @@
                             document.querySelector("#user-info-form #input_phone").value=e.responseUnsafe.contact.phone_number;
                     })
                 }
+                if(botParams.user.disability)
+                    document.querySelector("#user-info-form #input_disability").value=botParams.user.disability;
                 if(botParams.user.gender)
                     document.querySelector("#user-info-form #input_gender").value=botParams.user.gender;
                 if(botParams.user.birthdate){
